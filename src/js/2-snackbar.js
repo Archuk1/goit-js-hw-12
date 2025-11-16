@@ -2,7 +2,7 @@ import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 
 const refs = {
-    form: document.querySelector('.container-form'),
+    form: document.querySelector('.form'),
     submit_BTN: document.querySelector('.submit-btn'),
     input_Delay: document.querySelector('.input-delay'),
     Radio: document.querySelector('input[type="radio"]')
