@@ -1,5 +1,5 @@
 body {
-  overflow-x: hidden; /* ховає скрол */
+  overflow-x: hidden; 
 }
 
 .js-form-btn{
@@ -81,6 +81,8 @@ margin: auto;
 
 .gallery-container{
   display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .gallery-item{
@@ -111,4 +113,11 @@ margin: auto;
 
 .hidden{
   display: none;
+}
+
+.js-loadbtn{
+  width: 100px;
+  padding: 12px;
+  margin: 0 auto;
+  margin-bottom: 20px;
 }

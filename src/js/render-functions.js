@@ -3,7 +3,8 @@ import "simplelightbox/dist/simple-lightbox.min.css";
 
 const refs = {
     gallery: document.querySelector('.gallery'),
-    loader: document.querySelector('.loader')
+    loader: document.querySelector('.loader'),
+    loadMoreBtn: document.querySelector('.js-loadbtn')
 }
 
 let modal = new SimpleLightbox('.gallery a', {
@@ -12,7 +13,8 @@ let modal = new SimpleLightbox('.gallery a', {
 
 
 export function createGallery(images) {
-  refs.gallery.innerHTML = images
+
+  const markup = images
     .map(
       el => `
       <li class="gallery-item">
@@ -33,6 +35,7 @@ export function createGallery(images) {
     `
     )
     .join("");
+    refs.gallery.insertAdjacentHTML('beforeend', markup);
     modal.refresh();
 }
 
@@ -48,3 +51,11 @@ export function showLoader(){
 export function hideLoader(){
     refs.loader.classList.add('hidden')
 };
+
+export function showLoadMoreButton(){
+  refs.loadMoreBtn.classList.remove('hidden')
+}
+
+export function hideLoadMoreButton(){
+  refs.loadMoreBtn.classList.add('hidden')
+}
