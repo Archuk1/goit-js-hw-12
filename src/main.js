@@ -22,6 +22,7 @@ refs.form.addEventListener('submit', async e => {
     query =  e.target.elements.searchText.value;
 
     if (query.trim() === "") {
+        hideLoader();
         return iziToast.error({
             message: 'Please enter query!',
             position: 'topRight'
@@ -32,14 +33,16 @@ refs.form.addEventListener('submit', async e => {
 try {   
         const response = await getImagesByQuery(query,page);
 
-        totalPage = response.totalHits / 15;
+        totalPage = Math.ceil(response.totalHits / 15);
 
         if(response.totalHits == 0){
-            iziToast.error({
+           return iziToast.error({
                 message:'Sorry, there are no images matching your search query. Please try again!',
                 position: 'topRight'
             })
-        } else if (page < totalPage) {
+        } 
+        
+        if (page < totalPage) {
             showLoadMoreButton()
         } else {
          iziToast.info({
